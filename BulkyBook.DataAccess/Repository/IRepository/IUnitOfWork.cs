@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using BulkyBook.DataAccess.Repository.IRepository;
 
-namespace BulkyBook.DataAccess.Repository
+namespace BulkyBook.DataAccess.Repository.IRepository
 {
     public interface IUnitOfWork : IDisposable
     {
-
         ICategoryRepository Category { get; }
-
+        ICoverTypeRepository CoverType { get; }
         ISP_Call SP_Call { get; }
+
+        void Save();
     }
 }

@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using BulkyBook.DataAccess.Data;
+﻿using BulkyBook.DataAccess.Data;
 using BulkyBook.DataAccess.Repository.IRepository;
 using Dapper;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace BulkyBook.DataAccess.Repository
 {
@@ -20,6 +20,7 @@ namespace BulkyBook.DataAccess.Repository
             _db = db;
             ConnectionString = db.Database.GetDbConnection().ConnectionString;
         }
+
         public void Dispose()
         {
             _db.Dispose();
@@ -30,7 +31,7 @@ namespace BulkyBook.DataAccess.Repository
             using (SqlConnection sqlCon = new SqlConnection(ConnectionString))
             {
                 sqlCon.Open();
-                sqlCon.Execute(procedureName, param, commandType: System.Data.CommandType.StoredProcedure);
+                int v = sqlCon.Execute(procedureName, param, commandType: System.Data.CommandType.StoredProcedure);
             }
         }
 
@@ -53,11 +54,10 @@ namespace BulkyBook.DataAccess.Repository
                 var item2 = result.Read<T2>().ToList();
 
 
-                if(item1!=null && item2 != null)
+                if (item1 != null && item2 != null)
                 {
                     return new Tuple<IEnumerable<T1>, IEnumerable<T2>>(item1, item2);
                 }
-
 
             }
 
@@ -79,7 +79,7 @@ namespace BulkyBook.DataAccess.Repository
             using (SqlConnection sqlCon = new SqlConnection(ConnectionString))
             {
                 sqlCon.Open();
-                 return (T)Convert.ChangeType(sqlCon.ExecuteScalar<T>(procedureName, param, commandType: System.Data.CommandType.StoredProcedure), typeof(T));
+                return (T)Convert.ChangeType(sqlCon.ExecuteScalar<T>(procedureName, param, commandType: System.Data.CommandType.StoredProcedure), typeof(T));
             }
         }
     }

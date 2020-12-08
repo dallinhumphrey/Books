@@ -117,6 +117,7 @@
                 <div class="col-8">
                     <input type="file" name="files" id="uploadBox" multiple class="form-control" />
                 </div>
+                </div>
                 <div class="form-group row">
                     <div class="col-8 offset-4">
                         @if (Model.Product.Id != 0)
@@ -142,4 +143,23 @@
 
 @section Scripts{
 <partial name="_ValidationScriptsPartial" />
+<script src="https://cdn.tiny.cloud/1/4k3le089g9drqig6znylwr8c6pso44v4uv7lky9gxyeiamq5/tinymce/5/tinymce.min.js"></script>
+
+<script>
+
+    tinymce.init({
+        selector: 'textarea',
+        plugins: 'lists',
+        menubar: 'file edit format'
+    });
+
+    function validateInput() {
+        if (document.getElementById("uploadBox").value = "") {
+            swal("Error", "Please select an image", "error");
+            return false;
+        }
+        return true;
+    }
+
+</script>
 }

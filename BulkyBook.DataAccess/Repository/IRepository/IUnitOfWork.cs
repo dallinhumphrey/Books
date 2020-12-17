@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BulkyBook.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,5 +13,6 @@ namespace BulkyBook.DataAccess.Repository.IRepository
         ISP_Call SP_Call { get; }
 
         void Save();
+        Product Get(int id);
     }
 }

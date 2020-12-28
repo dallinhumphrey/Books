@@ -11,7 +11,7 @@
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         @if (Model.Product.Id != 0)
         {
-            // Edit
+            //edit
             title = "Edit Product";
             <input type="hidden" asp-for="Product.Id" />
         }
@@ -117,55 +117,57 @@
                 <div class="col-8">
                     <input type="file" name="files" id="uploadBox" multiple class="form-control" />
                 </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-8 offset-4">
-                        @if (Model.Product.Id != 0)
-                        {
-                            <partial name="_EditAndBackToListButton" model="Model.Product.Id" />
-                        }
-                        else
-                        {
-                    <div class="row">
-                        <div class="col">
-                            <button type="submit" onclick="return validateInput()" class="btn btn-primary form-control">Create</button>
+            </div>
+            <div class="form-group row">
+                <div class="col-8 offset-4">
+                    @if (Model.Product.Id != 0)
+                    {
+                        <partial name="_EditAndBackToListButton" model="Model.Product.Id" />
+                    }
+                    else
+                    {
+                        <div class="row">
+                            <div class="col">
+                                <button type="submit" onclick="return validateInput()" class="btn btn-primary form-control">Create</button>
+                            </div>
+                            <div class="col">
+                                <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
+                            </div>
                         </div>
-                        <div class="col">
-                            <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
-                        </div>
-                    </div>
-                        }
-                    </div>
+                    }
                 </div>
             </div>
+        </div>
         @if (Model.Product.Id != 0)
         {
             <div class="col-3 offset-1 pt-4">
-                <img src="@Model.Product.ImageUrl" width="100%" style="boarder-radius:.5rem; border:.1rem solid #bbb9b9" />
+                <img src="@Model.Product.ImageUrl" width="100%" style="border-radius:5px; border:1px solid #bbb9b9" />
             </div>
         }
-        </div>
+    </div>
 </form>
 
 @section Scripts{
-<partial name="_ValidationScriptsPartial" />
-<script src="https://cdn.tiny.cloud/1/4k3le089g9drqig6znylwr8c6pso44v4uv7lky9gxyeiamq5/tinymce/5/tinymce.min.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+    <script src="https://cdn.tiny.cloud/1/n94ifuzvl80pchikopiwgz2esrw8n28dwcywvpejlqrregfp/tinymce/5/tinymce.min.js"></script>
 
-<script>
+    <script>
 
-    tinymce.init({
-        selector: 'textarea',
-        plugins: 'lists',
-        menubar: 'file edit format'
-    });
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'lists',
+            menubar: 'file edit format'
+        });
 
-    function validateInput() {
-        if (document.getElementById("uploadBox").value == "") {
-            swal("Error", "Please select an image", "error");
-            return false;
-        }
-        return true;
-    }
 
-</script>
+        function validateInput() {
+            if (document.getElementById("uploadBox").value == "") {
+                swal("Error", "Please select an image", "error");
+                return false;
+            }
+            return true;
+        };
+
+    </script>
+
 }

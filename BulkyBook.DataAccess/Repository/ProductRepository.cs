@@ -1,10 +1,10 @@
-﻿using System;
+﻿using BulkyBook.DataAccess.Data;
+using BulkyBook.DataAccess.Repository.IRepository;
+using BulkyBook.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using BulkyBook.DataAccess.Data;
-using BulkyBook.DataAccess.Repository.IRepository;
-using BulkyBook.Models;
 
 namespace BulkyBook.DataAccess.Repository
 {
@@ -22,11 +22,10 @@ namespace BulkyBook.DataAccess.Repository
             var objFromDb = _db.Products.FirstOrDefault(s => s.Id == product.Id);
             if (objFromDb != null)
             {
-                if(product.ImageUrl != null)
+                if (product.ImageUrl != null)
                 {
                     objFromDb.ImageUrl = product.ImageUrl;
                 }
-
                 objFromDb.ISBN = product.ISBN;
                 objFromDb.Price = product.Price;
                 objFromDb.Price50 = product.Price50;
@@ -37,7 +36,7 @@ namespace BulkyBook.DataAccess.Repository
                 objFromDb.CategoryId = product.CategoryId;
                 objFromDb.Author = product.Author;
                 objFromDb.CoverTypeId = product.CoverTypeId;
- 
+
             }
         }
     }

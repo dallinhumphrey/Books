@@ -1,10 +1,10 @@
-﻿using System;
+﻿using BulkyBook.DataAccess.Data;
+using BulkyBook.DataAccess.Repository.IRepository;
+using BulkyBook.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using BulkyBook.DataAccess.Data;
-using BulkyBook.DataAccess.Repository.IRepository;
-using BulkyBook.Models;
 
 namespace BulkyBook.DataAccess.Repository
 {
@@ -23,7 +23,7 @@ namespace BulkyBook.DataAccess.Repository
             if (objFromDb != null)
             {
                 objFromDb.Name = coverType.Name;
- 
+
             }
         }
     }

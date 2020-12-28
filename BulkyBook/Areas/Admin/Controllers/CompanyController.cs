@@ -23,7 +23,7 @@ namespace BulkyBook.Areas.Admin.Controllers
             return View();
         }
 
-        public IActionResult  (int? id)
+        public IActionResult Upsert(int? id)
         {
             Company company = new Company();
             if (id == null)

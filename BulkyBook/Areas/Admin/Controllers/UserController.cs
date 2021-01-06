@@ -42,7 +42,7 @@ namespace BulkyBook.Areas.Admin.Controllers
                 {
                     user.Company = new Company()
                     {
-                        Name = " "
+                        Name = ""
                     };
                 }
             }

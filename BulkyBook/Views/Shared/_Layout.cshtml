@@ -28,8 +28,13 @@
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
 
+<<<<<<< HEAD
                         @if (User.IsInRole(SD.Role_Admin))
                         {
+=======
+                        @if(User.IsInRole(SD.Role_Admin))
+                        { 
+>>>>>>> af3948b26920c183415164ebb3d05c0a167e2c6f
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Content Management
@@ -37,11 +42,20 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a>
                                 <a class="dropdown-item" asp-area="Admin" asp-controller="CoverType" asp-action="Index">Cover Type</a>
+<<<<<<< HEAD
                                 <a class="dropdown-item" asp-area="Admin" asp-controller="Product" asp-action="Index">Product</a>
                             </div>
                         </li>
                         }
                         @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+=======
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Product" asp-action="Index">Product</a>                                
+                            </div>
+                        </li>
+                        }
+
+                        @if (User.IsInRole(SD.Role_Employee) || User.IsInRole(SD.Role_Admin))
+>>>>>>> af3948b26920c183415164ebb3d05c0a167e2c6f
                         {
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

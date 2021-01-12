@@ -14,7 +14,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace BulkyBook.Areas.Admin.Controllers
 {
     [Area("Admin")]
+<<<<<<< HEAD
     [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
+=======
+    [Authorize(Roles = SD.Role_Admin)]
+>>>>>>> af3948b26920c183415164ebb3d05c0a167e2c6f
     public class ProductController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
